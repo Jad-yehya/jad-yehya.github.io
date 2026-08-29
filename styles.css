@@ -1,0 +1,158 @@
+:root {
+  --text: #20242a;
+  --muted: #626a73;
+  --link: #174f7d;
+  --border: #d9dee3;
+  --soft: #f5f7f8;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 24px;
+  color: var(--text);
+  background: #fdfdfc;
+  font: 17px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration: none; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  top: 8px;
+  left: 8px;
+  padding: 8px;
+  background: white;
+}
+
+header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 52px 0 26px;
+  border-bottom: 1px solid var(--border);
+}
+
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+h1 {
+  margin: 0;
+  font-family: "Bodoni Moda", Didot, Georgia, serif;
+  font-size: 3.2rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+header p { margin: 6px 0 0; color: var(--muted); }
+
+nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .92rem; }
+nav a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+nav a:hover, nav a:focus-visible { color: var(--link); border-color: currentColor; }
+
+main { padding: 28px 0 24px; }
+section { padding: 30px 0; }
+section + section { border-top: 1px solid var(--border); }
+
+h2 { margin: 0 0 16px; font-size: 1.65rem; font-weight: 500; letter-spacing: -.01em; }
+h2.subsection { margin-top: 32px; font-size: 1.25rem; }
+h3 { margin: 0 0 6px; font-size: 1.1rem; line-height: 1.4; }
+p { margin: 8px 0 14px; }
+
+.intro { max-width: 780px; }
+.about-layout { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+.about-layout p:first-child { margin-top: 0; }
+.photo-placeholder {
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--soft);
+  font-size: .9rem;
+}
+.links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; }
+
+#publications article { position: relative; min-height: 58px; padding-left: 86px; }
+.publication-marker {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 72px;
+  height: auto;
+}
+article + article { margin-top: 28px; }
+article p { margin: 4px 0; }
+
+.software-list { margin: 0; padding-left: 22px; }
+.software-list li { margin: 10px 0; }
+
+.contribution-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contribution-list a {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 0;
+  text-decoration: none;
+}
+.contribution-list a:hover span,
+.contribution-list a:focus-visible span { text-decoration: underline; }
+.contribution-list img { width: 44px; height: 44px; object-fit: contain; justify-self: center; }
+.contribution-list span { font-weight: 600; }
+.contribution-list small { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
+.featured-contribution a { min-height: 112px; }
+.featured-contribution img { width: 105px; height: 78px; }
+
+footer {
+  padding: 0px 0 1px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+footer p { margin: 0; }
+.footer-drawing {
+  display: block;
+  width: min(1000px, 100vw);
+  max-width: none;
+  height: auto;
+  margin: 0 0 16px 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px) {
+  body { padding: 0 18px; font-size: 16px; }
+  header { display: block; padding-top: 32px; }
+  nav { margin-top: 20px; }
+  h1 { font-size: 2.1rem; }
+  .about-layout { grid-template-columns: 120px 1fr; gap: 18px; }
+  .contribution-list a { grid-template-columns: 82px 1fr; gap: 12px; }
+  .featured-contribution img { width: 78px; height: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 500px) {
+  .about-layout { grid-template-columns: 1fr; }
+  .photo-placeholder { width: 140px; }
+}
