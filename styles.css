@@ -122,7 +122,7 @@ article p { margin: 4px 0; }
 .featured-contribution img { width: 105px; height: 78px; }
 
 footer {
-  padding: 0px 0 1px;
+  padding: 0 0 24px;
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: .9rem;
